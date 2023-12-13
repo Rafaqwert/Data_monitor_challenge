@@ -8,6 +8,9 @@ public class MySqlEnviroment extends DataEnviroment{
     @Override
     public void createEnviroment(JdbcTemplate con) {
 
+        con.execute("CREATE IF NOT EXISTS dataMonitor;");
+        con.execute("USE dataMonitor;");
+
         con.execute("""
                 CREATE TABLE IF NOT EXISTS tb_category (
                 	category_id INT PRIMARY KEY NOT NULL,
